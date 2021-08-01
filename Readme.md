@@ -1,12 +1,13 @@
-#VENDING MACHINE API
+# VENDING MACHINE API
 
-##How to run it
+## How to run it
 
 1. Run build: 
 
 ``
 mvn clean install
 ``
+
 2. Build docker image:
 
 ``
@@ -14,19 +15,20 @@ docker build ./ -t vending-machine
 ``
 
 3. Deploy containers:
+
 ``
 docker compose up
 ``
 
-##How to test it
+## How to test it
 There are two ways to test it, after docker container is up an running you can use the postman collection in the project to test manually every endpoint you want or you can run the tests from classes OperationTests, ProductTests, UserTests.
 
-###Brief:
+### Brief:
 
 Design an API for a vending machine, allowing users with a “seller” role to add, update or remove products, while users with a “buyer” role can deposit coins into the machine and make purchases. Your vending machine should only accept 5, 10, 20, 50 and 100 cent coins.
 
 
-###Tasks:
+### Tasks:
 
 REST API should be implemented consuming and producing “application/json”
 
