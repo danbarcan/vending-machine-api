@@ -1,52 +1,57 @@
 package service;
 
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.misc.TransactionManager;
 import dao.DaoFactory;
+import exception.*;
 import model.Product;
 import model.User;
 import payload.BuyRequest;
 import payload.BuyResponse;
 import payload.ProductRequest;
+import utils.DatabaseUtils;
 
 import java.sql.SQLException;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ProductService {
     private Dao<Product, Long> productDao;
     private UserService userService;
 
-    public ProductService() {
-        try {
-            this.productDao = DaoFactory.getProductDao();
-        } catch (SQLException e) {
-            e.printStackTrace();//todo
-        }
+    public ProductService() throws SQLException {
+        this.productDao = DaoFactory.getProductDao();
         this.userService = new UserService();
     }
 
-    public List<Product> findAll() {
+    public List<Product> findAll() throws ResourceNotCreatedException {
         try {
-            return productDao.queryForAll();
+            List<Product> products = productDao.queryForAll();
+            if (products == null || products.isEmpty()) {
+                throw new ResourceNotCreatedException("No products found!");
+            }
+            return products;
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new ResourceNotCreatedException("No products found!", e);
         }
-        return Collections.emptyList();
     }
 
-    public Product findProductById(Long id) {
+    public Product findProductById(Long id) throws ResourceNotFoundException {
+        Product product = null;
         try {
-            return productDao.queryForId(id);
+            product = productDao.queryForId(id);
+            if (product == null) {
+                throw new ResourceNotFoundException("Product not found!");
+            }
+            return product;
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new ResourceNotFoundException("Product not found!", e);
         }
-        return null;
     }
 
-    public Product createProduct(ProductRequest productRequest, String username) {
+    public Product createProduct(ProductRequest productRequest, String username) throws ResourceNotCreatedException, ResourceNotFoundException {
         User seller = userService.findUserByUsername(username);
         Product product = Product.builder()
                 .productName(productRequest.getProductName())
@@ -56,69 +61,76 @@ public class ProductService {
                 .build();
 
         try {
-            return productDao.createIfNotExists(product);
+            product = productDao.createIfNotExists(product);
+            if (product == null) {
+                throw new ResourceNotCreatedException("Product not created!");
+            }
         } catch (SQLException e) {
-            e.printStackTrace();//todo
-            return null;
+            throw new ResourceNotCreatedException("Product not created!", e);
         }
+
+        return product;
     }
 
-    public int updateProduct(Long userId, ProductRequest productRequest) {
+    public int updateProduct(Long userId, ProductRequest productRequest) throws BaseException {
         try {
             Product existingProduct = productDao.queryForId(userId);
             if (existingProduct == null) {
-                return -1;
+                throw new ResourceNotFoundException("Product not found");
             }
             existingProduct.setCost(productRequest.getCost());
             existingProduct.setAmountAvailable(productRequest.getAmountAvailable());
             existingProduct.setProductName(productRequest.getProductName());
             return productDao.update(existingProduct);
         } catch (SQLException e) {
-            e.printStackTrace();//todo
-            return -2;
+            throw new ResourceNotUpdatedException("Product was not created", e);
         }
     }
 
-    public int deleteProductById(Long id) {
+    public int deleteProductById(Long id) throws ResourceNotDeletedException {
         try {
             return productDao.deleteById(id);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new ResourceNotDeletedException("Product was not deleted", e);
         }
-        return -1;
     }
 
-    public BuyResponse buy(BuyRequest buyRequest, String username) {
+    public BuyResponse buy(BuyRequest buyRequest, String username) throws BaseException {
         User user = userService.findUserByUsername(username);
-        List<Product> products = buyRequest.getProductIds().stream().map(this::findProductById).collect(Collectors.toList());
+        List<Product> products = new ArrayList<>();
+        for (Long aLong : buyRequest.getProductIds()) {
+            Product productById = findProductById(aLong);
+            products.add(productById);
+        }
 
         long totalCost = products.stream().mapToLong(Product::getCost).sum();
         if (totalCost > user.getDeposit()) {
-            return null; // todo throw exception
+            throw new InsufficientFundsException();
         } else {
             long change = user.getDeposit() - totalCost;
             user.setDeposit(change);
-            products.forEach(product -> {
-                product.setAmountAvailable(product.getAmountAvailable() - 1);
-            });
+            products.forEach(product -> product.setAmountAvailable(product.getAmountAvailable() - 1));
             if (products.stream().anyMatch(product -> product.getAmountAvailable() < 0)) {
-                //todo throw exception
-                return null;
+                throw new InsufficientAmountException();
             }
 
             try {
-                products.forEach(product -> {
-                    try {
-                        productDao.update(product);
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+                TransactionManager.callInTransaction(DatabaseUtils.getDataSourceConnection(), () -> {
+                    for (Product product : products) {
+                        try {
+                            productDao.update(product);
+                        } catch (SQLException e) {
+                            throw new ResourceNotUpdatedException("Buy could not be completed.", e);
+                        }
                     }
+                    userService.updateUser(user);
+
+                    return 0;
                 });
-                userService.updateUser(user);
             } catch (SQLException e) {
-                e.printStackTrace();
-                return null;
+                throw new ResourceNotUpdatedException("Buy could not be completed.", e);
             }
+
             return BuyResponse.builder().change(getChange(change)).productsPurchased(products).totalSpent(totalCost).build();
         }
     }
@@ -126,7 +138,7 @@ public class ProductService {
     private Map<Integer, Long> getChange(long sum) {
         List<Integer> coins = List.of(100, 50, 20, 10, 5);
         Map<Integer, Long> changeReturn = new LinkedHashMap<>();
-        for(Integer coin : coins) {
+        for (Integer coin : coins) {
 
             long result = sum / coin;
             sum = sum % coin;

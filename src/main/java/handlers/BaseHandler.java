@@ -2,12 +2,14 @@ package handlers;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import exception.HttpMethodNotAllowedException;
+import exception.InvalidParameterException;
 import utils.Constants;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-public abstract class BaseHandler implements HttpHandler {
+public class BaseHandler implements HttpHandler {
     protected String resourceUrl;
 
     @Override
@@ -30,7 +32,9 @@ public abstract class BaseHandler implements HttpHandler {
         exchange.close();
     }
 
-    protected abstract void handlePost(HttpExchange exchange) throws IOException;
+    protected void handlePost(HttpExchange exchange) throws IOException {
+        throw new HttpMethodNotAllowedException();
+    }
 
     protected void handleGet(HttpExchange exchange) throws IOException {
         String parameter = extractExtraParams(exchange.getRequestURI().toString());
@@ -43,21 +47,32 @@ public abstract class BaseHandler implements HttpHandler {
         output.flush();
     }
 
-    protected abstract void handleGetAll(HttpExchange exchange, OutputStream output) throws IOException;
+    protected void handleGetAll(HttpExchange exchange, OutputStream output) throws IOException {
+        throw new HttpMethodNotAllowedException();
+    }
 
-    protected abstract void handleGetOneByParameter(HttpExchange exchange, OutputStream output, String parameter) throws IOException;
+    protected void handleGetOneByParameter(HttpExchange exchange, OutputStream output, String parameter) throws IOException {
+        throw new HttpMethodNotAllowedException();
+    }
 
-    protected abstract void handlePut(HttpExchange exchange) throws IOException;
+    protected void handlePut(HttpExchange exchange) throws IOException {
+        throw new HttpMethodNotAllowedException();
+    }
 
-    protected abstract void handleDelete(HttpExchange exchange) throws IOException;
+    protected void handleDelete(HttpExchange exchange) throws IOException {
+        throw new HttpMethodNotAllowedException();
+    }
 
     private boolean urlIsCorrect(HttpExchange exchange) {
         String extraParams = extractExtraParams(exchange.getRequestURI().toString());
         switch (exchange.getRequestMethod()) {
             case Constants.HTTP_GET:
-                return extraParams == null || extraParams.length() == 0 || (extraParams.length() == 1 && extraParams.equals("/")) || isNumber(extraParams) || isValidUsername(extraParams);
+                return extraParams == null || extraParams.length() == 0 ||
+                        (extraParams.length() == 1 && extraParams.equals("/")) || isNumber(extraParams) ||
+                        isValidUsername(extraParams);
             case Constants.HTTP_POST:
-                return extraParams == null || extraParams.length() == 0 || (extraParams.length() == 1 && extraParams.equals("/"));
+                return extraParams == null || extraParams.length() == 0 || (extraParams.length() == 1 &&
+                        extraParams.equals("/"));
             case Constants.HTTP_PUT:
             case Constants.HTTP_DELETE:
                 return isNumber(extraParams);
@@ -67,7 +82,9 @@ public abstract class BaseHandler implements HttpHandler {
     }
 
     private String extractExtraParams(String url) {
-        return url.endsWith("/") || Character.isDigit(url.charAt(url.length() - 1)) ? url.replaceAll(resourceUrl, "") : url.replaceAll(resourceUrl.substring(0, resourceUrl.length() - 1), "");
+        return url.endsWith("/") || Character.isDigit(url.charAt(url.length() - 1)) ?
+                url.replaceAll(resourceUrl, "") :
+                url.replaceAll(resourceUrl.substring(0, resourceUrl.length() - 1), "");
     }
 
     private boolean isNumber(String string) {
@@ -81,5 +98,16 @@ public abstract class BaseHandler implements HttpHandler {
 
     private boolean isValidUsername(String string) {
         return !string.contains("/");
+    }
+
+    protected long parseParameterToLong(String parameter) throws InvalidParameterException {
+        if (parameter == null || parameter.isBlank()) {
+            throw new InvalidParameterException();
+        }
+        try {
+            return Long.parseLong(parameter);
+        } catch (Exception e) {
+            throw new InvalidParameterException();
+        }
     }
 }

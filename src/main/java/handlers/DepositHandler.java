@@ -8,18 +8,20 @@ import utils.Constants;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.sql.SQLException;
 import java.util.Map;
 
 public class DepositHandler extends BaseHandler {
     private final UserService userService;
     private final ObjectMapper mapper;
 
-    public DepositHandler() {
+    public DepositHandler() throws SQLException {
         this.userService = new UserService();
         this.mapper = new ObjectMapper();
         this.resourceUrl = Constants.DEPOSIT_URL + "/";
     }
 
+    @Override
     protected void handlePost(HttpExchange exchange) throws IOException {
         String respText;
         Map<Integer, Long> coins = mapper.readValue(exchange.getRequestBody(), DepositRequest.class).toMap();
@@ -35,22 +37,6 @@ public class DepositHandler extends BaseHandler {
         OutputStream output = exchange.getResponseBody();
         output.write(respText.getBytes());
         output.flush();
-    }
-
-    protected void handleGetAll(HttpExchange exchange, OutputStream output) throws IOException {
-        exchange.sendResponseHeaders(405, -1);// 405 Method Not Allowed
-    }
-
-    protected void handleGetOneByParameter(HttpExchange exchange, OutputStream output, String parameter) throws IOException {
-        exchange.sendResponseHeaders(405, -1);// 405 Method Not Allowed
-    }
-
-    protected void handlePut(HttpExchange exchange) throws IOException {
-        exchange.sendResponseHeaders(405, -1);// 405 Method Not Allowed
-    }
-
-    protected void handleDelete(HttpExchange exchange) throws IOException {
-        exchange.sendResponseHeaders(405, -1);// 405 Method Not Allowed
     }
 
     private long sumOfCoins(Map<Integer, Long> coins) {

@@ -2,75 +2,85 @@ package service;
 
 import com.j256.ormlite.dao.Dao;
 import dao.DaoFactory;
+import exception.ResourceNotDeletedException;
+import exception.ResourceNotFoundException;
+import exception.ResourceNotUpdatedException;
 import model.User;
 import payload.UserRequest;
 import payload.UserUpdateRequest;
 
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.List;
+
+import static utils.Constants.USER_NOT_FOUND;
 
 public class UserService {
     private Dao<User, Long> userDao;
 
-    public UserService() {
+    public UserService() throws SQLException {
+        this.userDao = DaoFactory.getUserDao();
+    }
+
+    public List<User> findAll() throws ResourceNotFoundException {
         try {
-            this.userDao = DaoFactory.getUserDao();
+            List<User> users = userDao.queryForAll();
+            if (users == null || users.isEmpty()) {
+                throw new ResourceNotFoundException("No users found!");
+            }
+            return users;
         } catch (SQLException e) {
-            e.printStackTrace();//TODO
+            throw new ResourceNotFoundException("No users found!", e);
         }
     }
 
-    public List<User> findAll() {
-        try {
-            return userDao.queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Collections.emptyList();
-    }
-
-    public User findUserByUsername(String username) {
+    public User findUserByUsername(String username) throws ResourceNotFoundException {
         try {
             List<User> users = userDao.queryForEq("username", username);
-            return users != null && !users.isEmpty() ? users.get(0) : null;
+            if (users == null || users.isEmpty()) {
+                throw new ResourceNotFoundException(USER_NOT_FOUND);
+            }
+            return users.get(0);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new ResourceNotFoundException(USER_NOT_FOUND, e);
         }
-        return null;
     }
 
-    public User findUserById(Long id) {
+    public User findUserById(Long id) throws ResourceNotFoundException {
         try {
-            return userDao.queryForId(id);
+            User user = userDao.queryForId(id);
+            if (user == null) {
+                throw new ResourceNotFoundException(USER_NOT_FOUND);
+            }
+            return user;
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new ResourceNotFoundException(USER_NOT_FOUND, e);
         }
-        return null;
     }
 
-    public User createUser(UserRequest userRequest) {
+    public User createUser(UserRequest userRequest) throws ResourceNotUpdatedException {
         User user = User.builder().username(userRequest.getUsername()).password(userRequest.getPassword()).role(userRequest.getRole()).build();
 
         try {
-            return userDao.createIfNotExists(user);
+            user = userDao.createIfNotExists(user);
+            if (user == null) {
+                throw new ResourceNotUpdatedException("User not created!");
+            }
+            return user;
         } catch (SQLException e) {
-            e.printStackTrace();//todo
-            return null;
+            throw new ResourceNotUpdatedException("User not created!", e);
         }
     }
 
-    public int updateUser(Long userId, UserUpdateRequest user) {
+    public int updateUser(Long userId, UserUpdateRequest user) throws ResourceNotFoundException, ResourceNotUpdatedException {
         try {
             User existingUser = userDao.queryForId(userId);
             if (existingUser == null) {
-                return -1;
+                throw new ResourceNotFoundException(USER_NOT_FOUND);
             }
             existingUser.setPassword(user.getPassword());
             return updateUser(existingUser);
         } catch (SQLException e) {
-            e.printStackTrace();//todo
-            return -2;
+            throw new ResourceNotUpdatedException(USER_NOT_FOUND, e);
         }
     }
 
@@ -78,36 +88,33 @@ public class UserService {
         return userDao.update(existingUser);
     }
 
-    public int deleteUserById(Long id) {
+    public int deleteUserById(Long id) throws ResourceNotDeletedException {
         try {
             return userDao.deleteById(id);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new ResourceNotDeletedException("User could not be deleted!", e);
         }
-        return -1;
     }
 
-    public int resetUserDeposit(String username) {
+    public int resetUserDeposit(String username) throws ResourceNotFoundException, ResourceNotUpdatedException {
         User user = findUserByUsername(username);
         user.setDeposit(0);
 
         try {
             return updateUser(user);
         } catch (SQLException e) {
-            e.printStackTrace();
-            return -2;
+            throw new ResourceNotUpdatedException("Deposit not reset!", e);
         }
     }
 
-    public int addCoinsToUserDeposit(String username, Long toAdd) {
+    public int addCoinsToUserDeposit(String username, Long toAdd) throws ResourceNotFoundException, ResourceNotUpdatedException {
         User user = findUserByUsername(username);
         user.setDeposit(user.getDeposit() + toAdd);
 
         try {
             return updateUser(user);
         } catch (SQLException e) {
-            e.printStackTrace();
-            return -2;
+            throw new ResourceNotUpdatedException("Deposit was not completed!", e);
         }
     }
 }

@@ -1,5 +1,6 @@
 package payload;
 
+import exception.InvalidRequestBodyException;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.User;
@@ -11,7 +12,10 @@ public class UserRequest {
     private String password;
     private User.Role role;
 
-    public boolean isValid() {
-        return username != null && !username.isBlank() && password != null && !password.isBlank() && role != null;
+    public boolean isValid() throws InvalidRequestBodyException {
+        if (username != null && !username.isBlank() && password != null && !password.isBlank() && role != null) {
+            return true;
+        }
+         throw new InvalidRequestBodyException();
     }
 }

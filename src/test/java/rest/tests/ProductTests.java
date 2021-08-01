@@ -75,6 +75,7 @@ public class ProductTests {
         Response response = createProduct(jsonAsMap, user.getUsername(), null);
 
         Assertions.assertEquals(400, response.statusCode());
+        Assertions.assertEquals("Invalid request body!", response.getBody().prettyPrint());
     }
 
     @Test
@@ -116,6 +117,7 @@ public class ProductTests {
         Response response = readProduct(Long.MAX_VALUE);
 
         Assertions.assertEquals(404, response.statusCode());
+        Assertions.assertEquals("Product not found!", response.getBody().prettyPrint());
     }
 
     @Test

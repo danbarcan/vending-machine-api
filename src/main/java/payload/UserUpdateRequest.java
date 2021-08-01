@@ -2,7 +2,6 @@ package payload;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.User;
 
 @Data
 @NoArgsConstructor

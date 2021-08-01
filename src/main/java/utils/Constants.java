@@ -11,4 +11,6 @@ public class Constants {
     public static final String DEPOSIT_URL = "/api/deposit";
     public static final String BUY_URL = "/api/buy";
     public static final String RESET_URL = "/api/reset";
+
+    public static final String USER_NOT_FOUND = "User not found";
 }

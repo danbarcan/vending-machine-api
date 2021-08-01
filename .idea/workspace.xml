@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05e43f76-6749-4da4-bcf6-54f5c0832b69" name="Default Changelist" comment="" />
+    <list default="true" id="05e43f76-6749-4da4-bcf6-54f5c0832b69" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/BaseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/HttpMethodNotAllowedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/InsufficientAmountException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/InsufficientFundsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/InvalidParameterException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/InvalidRequestBodyException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/ResourceNotCreatedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/ResourceNotDeletedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/ResourceNotUpdatedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/filter/ExceptionFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/filter/LoggingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/authenticator/BuyerAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/authenticator/BuyerAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/authenticator/ProductResourceAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/authenticator/ProductResourceAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/authenticator/UserResourceAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/authenticator/UserResourceAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/OperationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/OperationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/BaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/BaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/BuyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/BuyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/DepositHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/DepositHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/ProductHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/ProductHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/ResetHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/ResetHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/UserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/payload/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/payload/ProductRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/payload/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/payload/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/payload/UserUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/payload/UserUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DatabaseUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rest/tests/ProductTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/tests/ProductTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VendingMachineAPI-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendingMachineAPI-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VendingMachineAPI-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendingMachineAPI-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/authenticator/BuyerAuthenticator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/authenticator/BuyerAuthenticator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/authenticator/ProductResourceAuthenticator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/authenticator/ProductResourceAuthenticator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/authenticator/UserResourceAuthenticator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/authenticator/UserResourceAuthenticator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/OperationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/OperationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/handlers/BaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handlers/BaseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/handlers/BuyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handlers/BuyHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/handlers/DepositHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handlers/DepositHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/handlers/ProductHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handlers/ProductHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/handlers/ResetHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handlers/ResetHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/handlers/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handlers/UserHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Product$ProductBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Product$ProductBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/payload/ProductRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/payload/ProductRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/payload/UserRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/payload/UserRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/payload/UserUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/payload/UserUpdateRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/DatabaseUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/DatabaseUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/rest/tests/ProductTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/rest/tests/ProductTests.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,9 +77,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -29,6 +99,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1vgl99pH7i5cn27sZscy4aOkiEV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,6 +107,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
@@ -46,9 +118,9 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="experimental" />
   </component>
   <component name="RecentsManager">
@@ -56,11 +128,11 @@
       <recent name="rest.tests.TestUtils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="exception" />
+      <recent name="filter" />
       <recent name="rest.tests" />
       <recent name="payload" />
       <recent name="authenticator" />
-      <recent name="handlers" />
-      <recent name="controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Dan\Dev\Workspace\VendingMachineAPI" />
@@ -71,7 +143,34 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OperationTests.testDepositBuyAndResetFlow">
+  <component name="RunManager" selected="JUnit.OperationTests">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <envs>
+        <env name="DATASOURCE_PASSWORD" value="admin" />
+        <env name="DATASOURCE_USERNAME" value="postgres" />
+        <env name="DATASOURCE_URL" value="jdbc:postgresql://localhost:5432/vending-machine" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="VendingMachineAPI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OperationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VendingMachineAPI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rest.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="rest.tests" />
+      <option name="MAIN_CLASS_NAME" value="rest.tests.OperationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OperationTests.testDepositBuyAndResetFlow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VendingMachineAPI" />
       <extension name="coverage">
@@ -103,7 +202,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductTests.deleteProduct_unauthenticated_fails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductTests.createProduct_wrongPassword_fails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VendingMachineAPI" />
       <extension name="coverage">
         <pattern>
@@ -113,29 +212,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="rest.tests" />
       <option name="MAIN_CLASS_NAME" value="rest.tests.ProductTests" />
-      <option name="METHOD_NAME" value="deleteProduct_unauthenticated_fails" />
+      <option name="METHOD_NAME" value="createProduct_wrongPassword_fails" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductTests.deleteProduct_wrongPassword_fails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="VendingMachineAPI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="rest.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="rest.tests" />
-      <option name="MAIN_CLASS_NAME" value="rest.tests.ProductTests" />
-      <option name="METHOD_NAME" value="deleteProduct_wrongPassword_fails" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserTests.readUser_success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VendingMachineAPI" />
       <extension name="coverage">
         <pattern>
@@ -145,19 +228,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="rest.tests" />
       <option name="MAIN_CLASS_NAME" value="rest.tests.UserTests" />
-      <option name="METHOD_NAME" value="readUser_success" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.OperationTests" />
+      <item itemvalue="JUnit.OperationTests.testDepositBuyAndResetFlow" />
+      <item itemvalue="JUnit.ProductTests" />
+      <item itemvalue="JUnit.UserTests" />
+      <item itemvalue="JUnit.ProductTests.createProduct_wrongPassword_fails" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OperationTests.testDepositBuyAndResetFlow" />
-        <item itemvalue="JUnit.UserTests.readUser_success" />
+        <item itemvalue="JUnit.OperationTests" />
         <item itemvalue="JUnit.ProductTests" />
-        <item itemvalue="JUnit.ProductTests.deleteProduct_wrongPassword_fails" />
-        <item itemvalue="JUnit.ProductTests.deleteProduct_unauthenticated_fails" />
+        <item itemvalue="JUnit.UserTests" />
+        <item itemvalue="JUnit.ProductTests.createProduct_wrongPassword_fails" />
+        <item itemvalue="JUnit.OperationTests.testDepositBuyAndResetFlow" />
       </list>
     </recent_temporary>
   </component>
@@ -172,18 +262,37 @@
       <option name="presentableId" value="Default" />
       <updated>1626991458197</updated>
       <workItem from="1626991461057" duration="32042000" />
-      <workItem from="1627596816544" duration="20131000" />
+      <workItem from="1627596816544" duration="37906000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="1086" y="410" key="#com.intellij.ide.util.MemberChooser" timestamp="1627424474306">
+    <state x="873" y="359" key="#Project_Structure" timestamp="1627768838830">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1086" y="410" key="#com.intellij.ide.util.MemberChooser/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627424474306" />
+    <state x="873" y="359" key="#Project_Structure/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627768838830" />
+    <state x="736" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1627853600203">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="736" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627853600203" />
+    <state x="1086" y="410" key="#com.intellij.ide.util.MemberChooser" timestamp="1627776575875">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1086" y="410" key="#com.intellij.ide.util.MemberChooser/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627776575875" />
     <state x="998" y="410" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1627644143597">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -196,46 +305,58 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627067068756" />
-    <state x="1315" y="509" width="994" height="593" key="#xdebugger.evaluate" timestamp="1627647334127">
+    <state x="1315" y="509" width="994" height="593" key="#xdebugger.evaluate" timestamp="1627853766832">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1315" y="509" width="994" height="593" key="#xdebugger.evaluate/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627647334127" />
+    <state x="1315" y="509" width="994" height="593" key="#xdebugger.evaluate/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627853766832" />
+    <state x="886" y="284" key="CommitChangelistDialog2" timestamp="1627856689327">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="886" y="284" key="CommitChangelistDialog2/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856689327" />
+    <state x="93" y="93" width="2375" height="1215" key="DiffContextDialog" timestamp="1627776714380">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="93" y="93" width="2375" height="1215" key="DiffContextDialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627776714380" />
+    <state x="1016" y="463" key="EnvironmentVariablesDialog" timestamp="1627853598685">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1016" y="463" key="EnvironmentVariablesDialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627853598685" />
     <state x="1061" y="456" key="FileChooserDialogImpl" timestamp="1627649760027">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1061" y="456" key="FileChooserDialogImpl/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627649760027" />
-    <state width="2517" height="393" key="GridCell.Tab.0.bottom" timestamp="1627651820641">
+    <state width="2517" height="393" key="GridCell.Tab.0.bottom" timestamp="1627856464916">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="393" key="GridCell.Tab.0.bottom/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627651820641" />
-    <state width="2517" height="393" key="GridCell.Tab.0.center" timestamp="1627651820641">
+    <state width="2517" height="393" key="GridCell.Tab.0.bottom/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856464916" />
+    <state width="2517" height="393" key="GridCell.Tab.0.center" timestamp="1627856464916">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="393" key="GridCell.Tab.0.center/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627651820641" />
-    <state width="2517" height="393" key="GridCell.Tab.0.left" timestamp="1627651820641">
+    <state width="2517" height="393" key="GridCell.Tab.0.center/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856464916" />
+    <state width="2517" height="393" key="GridCell.Tab.0.left" timestamp="1627856464916">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="393" key="GridCell.Tab.0.left/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627651820641" />
-    <state width="2517" height="393" key="GridCell.Tab.0.right" timestamp="1627651820641">
+    <state width="2517" height="393" key="GridCell.Tab.0.left/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856464916" />
+    <state width="2517" height="393" key="GridCell.Tab.0.right" timestamp="1627856464916">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="393" key="GridCell.Tab.0.right/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627651820641" />
-    <state width="2517" height="483" key="GridCell.Tab.1.bottom" timestamp="1627649239146">
+    <state width="2517" height="393" key="GridCell.Tab.0.right/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856464916" />
+    <state width="2517" height="483" key="GridCell.Tab.1.bottom" timestamp="1627856304457">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="483" key="GridCell.Tab.1.bottom/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627649239146" />
-    <state width="2517" height="483" key="GridCell.Tab.1.center" timestamp="1627649239146">
+    <state width="2517" height="483" key="GridCell.Tab.1.bottom/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856304457" />
+    <state width="2517" height="483" key="GridCell.Tab.1.center" timestamp="1627856304457">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="483" key="GridCell.Tab.1.center/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627649239146" />
-    <state width="2517" height="483" key="GridCell.Tab.1.left" timestamp="1627649239146">
+    <state width="2517" height="483" key="GridCell.Tab.1.center/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856304457" />
+    <state width="2517" height="483" key="GridCell.Tab.1.left" timestamp="1627856304457">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="483" key="GridCell.Tab.1.left/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627649239146" />
-    <state width="2517" height="483" key="GridCell.Tab.1.right" timestamp="1627649239146">
+    <state width="2517" height="483" key="GridCell.Tab.1.left/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856304457" />
+    <state width="2517" height="483" key="GridCell.Tab.1.right" timestamp="1627856304457">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="483" key="GridCell.Tab.1.right/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627649239146" />
+    <state width="2517" height="483" key="GridCell.Tab.1.right/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856304457" />
     <state x="811" y="356" key="Maven.ArtifactSearchDialog" timestamp="1627504712041">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -248,39 +369,59 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="761" y="275" key="SettingsEditor/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627649769654" />
-    <state x="93" y="93" width="2375" height="1215" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1627431508024">
+    <state x="93" y="93" width="2375" height="1215" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1627856162979">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="93" y="93" width="2375" height="1215" key="com.intellij.history.integration.ui.views.FileHistoryDialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627431508024" />
-    <state x="1593" y="377" width="538" height="495" key="extract.method.dialog" timestamp="1627644095148">
+    <state x="93" y="93" width="2375" height="1215" key="com.intellij.history.integration.ui.views.FileHistoryDialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856162979" />
+    <state x="1593" y="377" width="538" height="495" key="extract.method.dialog" timestamp="1627855049504">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1593" y="377" width="538" height="495" key="extract.method.dialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627644095148" />
-    <state x="976" y="432" width="612" height="536" key="find.popup" timestamp="1627648309038">
+    <state x="1593" y="377" width="538" height="495" key="extract.method.dialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627855049504" />
+    <state x="976" y="432" width="742" height="606" key="find.popup" timestamp="1627855580475">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="976" y="432" width="612" height="536" key="find.popup/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627648309038" />
+    <state x="976" y="432" width="742" height="606" key="find.popup/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627855580475" />
     <state x="1023" y="320" key="refactoring.ChangeSignatureDialog" timestamp="1627317180415">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1023" y="320" key="refactoring.ChangeSignatureDialog/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627317180415" />
-    <state x="937" y="331" width="672" height="677" key="run.anything.popup" timestamp="1627650568940">
+    <state x="937" y="331" width="672" height="677" key="run.anything.popup" timestamp="1627856364221">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="937" y="331" width="672" height="677" key="run.anything.popup/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627650568940" />
+    <state x="937" y="331" width="672" height="677" key="run.anything.popup/-1920.0.1536.816/0.0.2560.1400@0.0.2560.1400" timestamp="1627856364221" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/handlers/ResetHandler.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/rest/tests/TestUtils.java</url>
           <line>215</line>
           <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/rest/tests/OperationTests.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/handlers/UserHandler.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/authenticator/BuyerAuthenticator.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/rest/tests/ProductTests.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/handlers/UserHandler.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="93" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
